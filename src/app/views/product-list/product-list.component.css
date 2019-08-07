@@ -1,7 +1,41 @@
-fieldset {
+* {
   font-family: Open Sans;
+  font-size: 1rem;
   font-weight: 600;
+  box-sizing: border-box;
+}
+
+fieldset {
   border-radius: 10px;
   border: 2px black solid;
-  margin-bottom: 2em;
+  margin-bottom: 1rem;
+}
+
+legend {
+  margin-left: 1rem;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
+ul {
+  list-style-type: none;
+}
+
+li {
+  padding: 0.5rem 1rem;
+  margin: 0.25rem;
+  margin-left: -2rem;
+  cursor: pointer;
+}
+
+li.selected {
+  cursor: default;
+  border-radius: 5px;
+  background-color: darkgray;
+  box-shadow: 2px 2px 5px,
+    1px 1px 10px inset;
+}
+
+span.btn-img {
+  margin-right: 0.5rem;
 }

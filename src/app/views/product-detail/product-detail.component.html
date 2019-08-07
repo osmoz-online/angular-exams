@@ -1,3 +1,25 @@
 <fieldset>
-    <legend>Détail du produit</legend>
+  <legend>Détail du produit</legend>
+  <form [formGroup]="productForm" (ngSubmit)="submit()">
+    <div>
+      <label for="nom">Nom :</label>
+      <input id="nom" formControlName="nom">
+    </div>
+    <div>
+      <label for="texture">Texture :</label>
+      <input id="texture" formControlName="texture">
+    </div>
+    <div>
+      <label for="grammage">Grammage :</label>
+      <input id="grammage" formControlName="grammage">
+    </div>
+    <div>
+      <label for="couleur">Couleur :</label>
+      <input id="couleur" formControlName="couleur">
+    </div>
+    <button type="button" (click)="cancel()">
+      <span class="btn-img fa fa-ban"></span>Annuler</button>
+    <button type="submit" [disabled]="!productForm.valid">
+      <span class="btn-img fa fa-check"></span>Valider</button>
+  </form>
 </fieldset>

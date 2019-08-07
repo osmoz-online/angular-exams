@@ -1,6 +1,91 @@
-fieldset {
+* {
   font-family: Open Sans;
+  font-size: 1rem;
   font-weight: 600;
+  box-sizing: border-box;
+}
+
+fieldset {
   border-radius: 10px;
   border: 2px black solid;
+  margin-top: 1rem;
+}
+
+legend {
+  margin-left: 1rem;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
+form {
+  padding: 0.5rem;
+}
+
+form div {
+  padding-top: inherit;
+}
+
+label {
+  display: inline-block;
+  width: 6rem;
+  text-align: right;
+  margin-right: 0.5em;
+  cursor: pointer;
+}
+
+input {
+  background-color: #aaa;
+  border-radius: 5px;
+  border: none;
+  box-shadow: 2px 2px 5px;
+  padding-left: 0.35rem;
+}
+
+#nom {
+  width: 20rem;
+}
+
+#texture {
+  width: 10rem;
+}
+
+#grammage {
+  width: 6rem;
+}
+
+#couleur {
+  width: 10rem;
+}
+
+button {
+  width: 8rem;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.9rem;
+  border-radius: 20px;
+  margin-right: 1rem;
+  margin-top: 1rem;
+  border: none;
+  box-shadow: 2px 2px 5px,
+    1px 1px 10px inset;
+}
+
+button[type=submit] {
+  background-color: green;
+  border-color: green;
+}
+
+button[type=button] {
+  background-color: orangered;
+  border-color: orangered;
+}
+
+button span.btn-img {
+  margin-right: 0.5rem;
+  font-size: 1.2rem;
+  vertical-align: bottom;
+}
+
+button:active {
+  box-shadow: 2px 2px 10px inset;
+  transform: translateX(2px) translateY(2px);
 }

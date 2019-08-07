@@ -6,6 +6,10 @@ export class PaperProduct {
     public couleur: string;
 
     constructor(data?) {
+        this.setProductData(data);
+    }
+
+    setProductData(data?) {
         if (data) {
             if (data.hasOwnProperty('id')) this.id = data['id'];
             if (data.hasOwnProperty('nom')) this.nom = data['nom'];

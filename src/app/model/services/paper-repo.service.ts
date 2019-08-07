@@ -9,14 +9,14 @@ export class PaperRepoService {
   private products = [
     new PaperProduct({
       id: 1,
-      nom: 'Canson Figueras (huile & acrylique)',
+      nom: 'Canson Figueras - Huile & acrylique',
       texture: 'Toilée',
       grammage: '290g/m2',
       couleur: 'Blanc'
     }),
     new PaperProduct({
       id: 2,
-      nom: 'Canson Montval (aquarelle)',
+      nom: 'Canson Montval - Aquarelle',
       texture: 'Micro-perforée',
       grammage: '270g/m2',
       couleur: 'Blanc'
