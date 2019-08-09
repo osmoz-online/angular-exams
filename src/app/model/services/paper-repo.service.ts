@@ -46,7 +46,36 @@ export class PaperRepoService {
 
   constructor() { }
 
-  public getProducts() {
+  getProducts() {
     return this.products;
+  }
+
+  setProduct(p: PaperProduct) {
+    if (p) {
+      if (p.id == -1) {
+        this.addProduct(p);
+      } else {
+        var index = this.products.findIndex(product => {
+          return product.id === p.id;
+        });
+        if (index >= 0) {
+          this.products[index] = p;
+        }
+      }
+    }
+  }
+
+  addProduct(p: PaperProduct) {
+    p.id = this.getNewId();
+    p.getAsString();
+    this.products.push(p);
+  }
+
+  getNewId() {
+    var id = -1;
+    this.products.forEach(product => {
+      if (product.id > id) id = product.id;
+    });
+    return id + 1;
   }
 }

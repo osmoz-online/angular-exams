@@ -4,22 +4,28 @@
     <div>
       <label for="nom">Nom :</label>
       <input id="nom" formControlName="nom">
+      <span *ngIf="productForm.hasError('required', ['nom'])" class="error">Le nom ne peut être vide</span>
     </div>
     <div>
       <label for="texture">Texture :</label>
       <input id="texture" formControlName="texture">
+      <span *ngIf="productForm.hasError('required', ['texture'])" class="error">La texture ne peut être vide</span>
     </div>
     <div>
       <label for="grammage">Grammage :</label>
       <input id="grammage" formControlName="grammage">
+      <span *ngIf="productForm.hasError('required', ['grammage'])" class="error">Le grammage ne peut être vide</span>
     </div>
     <div>
       <label for="couleur">Couleur :</label>
       <input id="couleur" formControlName="couleur">
+      <span *ngIf="productForm.hasError('required', ['couleur'])" class="error">La couleur ne peut être vide</span>
     </div>
     <button type="button" (click)="cancel()">
-      <span class="btn-img fa fa-ban"></span>Annuler</button>
+      <span class="btn-img fa fa-ban"></span>Annuler
+    </button>
     <button type="submit" [disabled]="!productForm.valid">
-      <span class="btn-img fa fa-check"></span>Valider</button>
+      <span class="btn-img fa fa-check"></span>Valider
+    </button>
   </form>
 </fieldset>

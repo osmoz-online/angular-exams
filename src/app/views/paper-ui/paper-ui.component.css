@@ -6,11 +6,20 @@
 }
 
 main {
-  margin: 2rem auto;
   width: 70%;
   height: 75%;
   background: #2255cc;
   padding: 2rem;
+  margin: 2rem auto;
+  border-radius: 15px;
+  position: relative;
+}
+
+#logo {
+  width: 10em;
+  position: absolute;
+  top: 0.5em;
+  right: 1em;
 }
 
 header {
@@ -30,7 +39,7 @@ button {
   margin-bottom: 1rem;
   border: none;
   box-shadow: 2px 2px 5px, 1px 1px 10px inset;
-  align-items: center;
+  cursor: pointer;
 }
 
 button[type=button] {
@@ -47,4 +56,15 @@ button span.btn-img {
   margin-right: 0.5rem;
   font-size: 1.2rem;
   vertical-align: middle;
+}
+
+div {
+  position: relative;
+}
+
+#mode {
+  position: absolute;
+  right: 1em;
+  top: 1.5em;
+
 }

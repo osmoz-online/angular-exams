@@ -1,7 +1,15 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css">
 <main>
+  <img id="logo" src="assets/img/paperland_large.png" alt="Logo de la marque PaperLand">
   <header>{{title}}</header>
-  <app-product-list></app-product-list>
-  <button type="button" (click)="add()"><span class="btn-img fa fa-plus"></span>Ajouter</button>
-  <app-product-detail></app-product-detail>
+  <app-product-list [productInEdition]="productInEdition" [valueChangedProduct]="valueChangedProduct"
+    (selectionChanged)="changeSelection($event)">
+  </app-product-list>
+  <div>
+    <button type="button" (click)="additionModeOn()"><span class="btn-img fa fa-plus"></span>Ajouter</button>
+    <span id="mode">{{mode}}</span>
+  </div>
+  <app-product-detail [product]="selectedProduct" (productInEdition)="onProductEdition($event)"
+    (productValueChanged)="onProductValueChanged($event)">
+  </app-product-detail>
 </main>

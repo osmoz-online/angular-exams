@@ -28,6 +28,10 @@ li {
   cursor: pointer;
 }
 
+li.edition {
+  cursor: default;
+}
+
 li.selected {
   cursor: default;
   border-radius: 5px;

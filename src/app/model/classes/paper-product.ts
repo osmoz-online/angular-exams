@@ -18,4 +18,17 @@ export class PaperProduct {
             if (data.hasOwnProperty('couleur')) this.couleur = data['couleur'];
         }
     }
+
+    getAsString() {
+        console.log('[' + this.id + '] ' + this.nom + '(' + this.texture + ', ' + this.grammage + ', ' + this.couleur + ')')
+    }
+
+    equals(p: PaperProduct) {
+        return this.id === p.id
+            && this.nom === p.nom
+            && this.texture === p.texture
+            && this.grammage === p.grammage
+            && this.couleur === p.couleur;
+    }
+
 }

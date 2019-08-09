@@ -57,6 +57,11 @@ input {
   width: 10rem;
 }
 
+span.error {
+  margin-left: 1em;
+  background-color: red;
+}
+
 button {
   width: 8rem;
   padding: 0.5rem 0.75rem;
@@ -67,6 +72,7 @@ button {
   border: none;
   box-shadow: 2px 2px 5px,
     1px 1px 10px inset;
+  cursor: pointer;
 }
 
 button[type=submit] {
