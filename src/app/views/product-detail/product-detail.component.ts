@@ -34,8 +34,10 @@ export class ProductDetailComponent implements OnInit {
 
   ngOnInit() {
     const id = + this._activatedRoute.snapshot.paramMap.get('id');
-    this.productToDisplay = this.productsRepo.getProduct(id);
-    this.setProduct(this.productToDisplay);
+    if (id !== 0) {
+      this.productToDisplay = this.productsRepo.getProduct(id);
+      this.setProduct(this.productToDisplay);
+    }
     this.productForm.valueChanges.subscribe((formValue) => {
       if (this.isFromUser)
         this.productInEdition.emit(true);
