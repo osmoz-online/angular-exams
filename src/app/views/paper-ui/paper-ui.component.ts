@@ -7,7 +7,6 @@ import { PaperProduct } from '../../model/classes/paper-product';
   styleUrls: ['./paper-ui.component.css']
 })
 export class PaperUiComponent implements OnInit {
-  title = 'Application de gestion des produits';
   mode = '';
   inAdditionMode: boolean = false;
   selectedProduct: PaperProduct;
