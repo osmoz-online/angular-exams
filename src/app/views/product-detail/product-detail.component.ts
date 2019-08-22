@@ -1,6 +1,8 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { PaperProduct } from 'src/app/model/classes/paper-product';
+import { ActivatedRoute } from '@angular/router';
+import { PaperRepoService } from 'src/app/model/services/paper-repo.service';
 
 @Component({
   selector: 'app-product-detail',
@@ -28,9 +30,12 @@ export class ProductDetailComponent implements OnInit {
     couleur: new FormControl('', Validators.required)
   });
 
-  constructor() { }
+  constructor(private _activatedRoute: ActivatedRoute, private productsRepo: PaperRepoService) { }
 
   ngOnInit() {
+    const id = + this._activatedRoute.snapshot.paramMap.get('id');
+    this.productToDisplay = this.productsRepo.getProduct(id);
+    this.setProduct(this.productToDisplay);
     this.productForm.valueChanges.subscribe((formValue) => {
       if (this.isFromUser)
         this.productInEdition.emit(true);

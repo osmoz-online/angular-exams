@@ -43,11 +43,17 @@ export class PaperRepoService {
       couleur: 'Lavande'
     })
   ];
-
+  
   constructor() { }
 
   getProducts() {
     return this.products;
+  }
+
+  getProduct(id: number) {
+    return this.products.find(p => {
+      return p.id === id;
+    });
   }
 
   setProduct(p: PaperProduct) {

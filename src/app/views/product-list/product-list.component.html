@@ -3,8 +3,10 @@
   <ul>
     <li *ngFor="let product of products" (click)="selectProduct(product)" [class.edition]="modeEditionOn()"
       [class.selected]="isSelected(product)">
+      <span routerLink="./{{product.id}}">
       <span class="btn-img fa fa-paper-plane"></span>{{product.nom}} ({{product.texture}}, {{product.grammage}},
       {{product.couleur}})
+      </span>
     </li>
   </ul>
 </fieldset>
