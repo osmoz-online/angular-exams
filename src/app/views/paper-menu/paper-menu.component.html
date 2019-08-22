@@ -1,0 +1,7 @@
+<ul>
+  <li *ngFor="let r of routes">
+    <button [routerLink]=r.path>
+      {{r.data.linkLabel}}
+    </button>
+  </li>
+</ul>
