@@ -8,6 +8,9 @@ import { ProductListComponent } from './views/product-list/product-list.componen
 import { ProductDetailComponent } from './views/product-detail/product-detail.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { PaperMenuComponent } from './views/paper-menu/paper-menu.component';
+import { PageNotFoundComponent } from './views/page-not-found/page-not-found.component';
+import { ListAndAddComponent } from './list-and-add/list-and-add.component';
+import { DetailAndReturnComponent } from './detail-and-return/detail-and-return.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +18,10 @@ import { PaperMenuComponent } from './views/paper-menu/paper-menu.component';
     PaperUiComponent,
     ProductListComponent,
     ProductDetailComponent,
-    PaperMenuComponent
+    PaperMenuComponent,
+    PageNotFoundComponent,
+    ListAndAddComponent,
+    DetailAndReturnComponent
   ],
   imports: [
     BrowserModule,
