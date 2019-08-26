@@ -1,7 +1,9 @@
-<ul>
-  <li *ngFor="let r of routes">
-    <button [routerLink]=r.path>
-      {{r.data.linkLabel}}
-    </button>
-  </li>
-</ul>
+<div>
+  <ul>
+    <li *ngFor="let r of routes">
+      <button [routerLink]=r.path>
+        <span class="btn-img fa fa-chevron-right"></span>{{r.data.linkLabel}}
+      </button>
+    </li>
+  </ul>
+</div>
