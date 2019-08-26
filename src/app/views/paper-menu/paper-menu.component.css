@@ -7,6 +7,14 @@
 
 ul {
   list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  display: inline-block;
+  margin: 0;
+  padding: 0;
 }
 
 button {
@@ -14,7 +22,7 @@ button {
   padding: 0.5rem 0.75rem;
   font-size: 0.9rem;
   border-radius: 20px;
-  margin-right: 1rem;
+  margin-right: 2rem;
   margin-top: 1rem;
   border: none;
   box-shadow: 2px 2px 5px,
