@@ -43,7 +43,7 @@ export class PaperRepoService {
       couleur: 'Lavande'
     })
   ];
-  
+
   constructor() { }
 
   getProducts() {
@@ -51,30 +51,37 @@ export class PaperRepoService {
   }
 
   getProduct(id: number) {
-    return this.products.find(p => {
+    return this.getProducts().find(p => {
       return p.id === id;
     });
   }
 
-  setProduct(p: PaperProduct) {
+  addOrUpdateProduct(p: PaperProduct) {
     if (p) {
-      if (p.id == -1) {
-        this.addProduct(p);
+      if (this.getProduct(p.id) !== undefined) {
+        this.updateProduct(p);
       } else {
-        var index = this.products.findIndex(product => {
-          return product.id === p.id;
-        });
-        if (index >= 0) {
-          this.products[index] = p;
-        }
+        this.addProduct(p);
+      }
+    }
+  }
+
+  updateProduct(p: PaperProduct) {
+    if (p) {
+      var index = this.products.findIndex(product => {
+        return product.id === p.id;
+      });
+      if (index >= 0) {
+        this.products[index] = p;
       }
     }
   }
 
   addProduct(p: PaperProduct) {
-    p.id = this.getNewId();
-    p.getAsString();
-    this.products.push(p);
+    if (p) {
+      p.id = this.getNewId();
+      this.products.push(p);
+    }
   }
 
   getNewId() {
