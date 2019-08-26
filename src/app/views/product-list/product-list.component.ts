@@ -26,10 +26,10 @@ export class ProductListComponent implements OnInit {
 
   @Output() selectionChanged = new EventEmitter<PaperProduct>();
 
-  constructor(private _activatedRoute: ActivatedRoute, private _router: Router, private paperRepo: PaperRepoService) { }
+  constructor(private _activatedRoute: ActivatedRoute, private _router: Router, private _paperRepo: PaperRepoService) { }
 
   ngOnInit() {
-    this.products = this.paperRepo.getProducts();
+    this.products = this._paperRepo.getProducts();
     if (this._activatedRoute.routeConfig.data.selectDefault)
       this.selectProduct(this.products[0]);
   }
@@ -50,7 +50,7 @@ export class ProductListComponent implements OnInit {
   }
 
   updateProduct(p: PaperProduct) {
-    this.paperRepo.updateProduct(p);
+    this._paperRepo.updateProduct(p);
     this.selectProduct(p);
   }
 

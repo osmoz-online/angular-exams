@@ -30,12 +30,12 @@ export class ProductDetailComponent implements OnInit {
     couleur: new FormControl('', Validators.required)
   });
 
-  constructor(private _activatedRoute: ActivatedRoute, private _productsRepo: PaperRepoService) { }
+  constructor(private _activatedRoute: ActivatedRoute, private _paperRepo: PaperRepoService) { }
 
   ngOnInit() {
     const id = + this._activatedRoute.snapshot.paramMap.get('id');
     if (id !== 0) {
-      this.productToDisplay = this._productsRepo.getProduct(id);
+      this.productToDisplay = this._paperRepo.getProduct(id);
       this.setProduct(this.productToDisplay);
     }
     this.productForm.valueChanges.subscribe((formValue) => {
@@ -58,7 +58,7 @@ export class ProductDetailComponent implements OnInit {
   submit() {
     var p = new PaperProduct(this.productForm.value);
     if (!this.productToDisplay.equals(p)) {
-      this._productsRepo.addOrUpdateProduct(p);
+      this._paperRepo.addOrUpdateProduct(p);
       this.productValueChanged.emit(p);
       this.productToDisplay = p;
     }
