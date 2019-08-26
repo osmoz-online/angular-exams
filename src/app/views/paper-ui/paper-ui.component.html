@@ -9,4 +9,7 @@
   <app-product-detail [product]="selectedProduct" (productInEdition)="onProductEdition($event)"
     (productValueChanged)="onProductValueChanged($event)">
   </app-product-detail>
+  <button id="back" routerLink='/'>
+    <span class="btn-img fa fa-chevron-left"></span>Retour au menu
+  </button>
 </main>
