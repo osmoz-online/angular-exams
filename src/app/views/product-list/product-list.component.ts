@@ -1,6 +1,7 @@
 import { Component, OnInit, EventEmitter, Output, Input } from '@angular/core';
 import { PaperRepoService } from '../../model/services/paper-repo.service';
 import { PaperProduct } from '../../model/classes/paper-product';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-product-list',
@@ -25,17 +26,22 @@ export class ProductListComponent implements OnInit {
 
   @Output() selectionChanged = new EventEmitter<PaperProduct>();
 
-  constructor(private paperRepo: PaperRepoService) { }
+  constructor(private _activatedRoute: ActivatedRoute, private _router: Router, private paperRepo: PaperRepoService) { }
 
   ngOnInit() {
     this.products = this.paperRepo.getProducts();
-    this.selectProduct(this.products[0]);
+    if (this._activatedRoute.routeConfig.data.selectDefault)
+      this.selectProduct(this.products[0]);
   }
 
   selectProduct(p: PaperProduct) {
     if (!this.isInEdition) {
-      this.selectedProduct = p;
-      this.selectionChanged.emit(p);
+      if (this._activatedRoute.routeConfig.data.navigate) {
+        this._router.navigateByUrl(this._activatedRoute.routeConfig.path + '/' + p.id);
+      } else {
+        this.selectedProduct = p;
+        this.selectionChanged.emit(p);
+      }
     }
   }
 
@@ -44,7 +50,7 @@ export class ProductListComponent implements OnInit {
   }
 
   updateProduct(p: PaperProduct) {
-    this.paperRepo.setProduct(p);
+    this.paperRepo.updateProduct(p);
     this.selectProduct(p);
   }
 
