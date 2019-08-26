@@ -9,8 +9,8 @@ import { ProductDetailComponent } from './views/product-detail/product-detail.co
 import { ReactiveFormsModule } from '@angular/forms';
 import { PaperMenuComponent } from './views/paper-menu/paper-menu.component';
 import { PageNotFoundComponent } from './views/page-not-found/page-not-found.component';
-import { ListAndAddComponent } from './list-and-add/list-and-add.component';
-import { DetailAndReturnComponent } from './detail-and-return/detail-and-return.component';
+import { ListAndAddComponent } from './views/list-and-add/list-and-add.component';
+import { DetailAndReturnComponent } from './views/detail-and-return/detail-and-return.component';
 
 @NgModule({
   declarations: [
