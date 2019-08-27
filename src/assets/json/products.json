@@ -1,0 +1,31 @@
+[{
+  "id": 1,
+  "nom": "Canson Figueras - Huile & acrylique",
+  "texture": "Toilée",
+  "grammage": "290g/m2",
+  "couleur": "Blanc"
+}, {
+  "id": 2,
+  "nom": "Canson Montval - Aquarelle",
+  "texture": "Micro-perforée",
+  "grammage": "270g/m2",
+  "couleur": "Blanc"
+}, {
+  "id": 3,
+  "nom": "Clairefontaine PastelMat",
+  "texture": "Veloutée",
+  "grammage": "360g/m2",
+  "couleur": "Blanc"
+}, {
+  "id": 4,
+  "nom": "Clairefontaine Paint'on",
+  "texture": "Bouffante",
+  "grammage": "250g/m2",
+  "couleur": "Blanc"
+}, {
+  "id": 5,
+  "nom": "Dalbe dessin couleur",
+  "texture": "Grain léger",
+  "grammage": "170g/m2",
+  "couleur": "Lavande"
+}]

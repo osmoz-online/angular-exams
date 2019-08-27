@@ -12,13 +12,16 @@ import { Subscription } from 'rxjs';
 })
 export class ProductDetailComponent implements OnInit {
   private _formValueChangesSubscription: Subscription;
-  private productToDisplay: PaperProduct;
-  private isFromUser: boolean = true;
+  private _productSubscription: Subscription;
+  private _productToDisplay: PaperProduct;
+  private _isFromUser: boolean = true;
 
   @Input()
   set product(value: PaperProduct) {
-    this.productToDisplay = value;
-    this.setProduct(this.productToDisplay);
+    if (value) {
+      this._productToDisplay = value;
+      this.setProduct(this._productToDisplay);
+    }
   }
 
   @Output() productInEdition = new EventEmitter<boolean>();
@@ -37,11 +40,11 @@ export class ProductDetailComponent implements OnInit {
   ngOnInit() {
     const id = + this._activatedRoute.snapshot.paramMap.get('id');
     if (id == 0) {
-      this.productToDisplay = this._paperRepo.getProduct(1);
+      this._productSubscription = this._paperRepo.getProduct(1).subscribe(product => this._productToDisplay = product);
     } else if (id > 0) {
-      this.productToDisplay = this._paperRepo.getProduct(id);
+      this._productSubscription = this._paperRepo.getProduct(id).subscribe(product => this._productToDisplay = product);
     } else {
-      this.productToDisplay = new PaperProduct({
+      this._productToDisplay = new PaperProduct({
         id: -1,
         nom: '',
         texture: '',
@@ -49,34 +52,38 @@ export class ProductDetailComponent implements OnInit {
         couleur: ''
       });
     }
-    this.setProduct(this.productToDisplay);
+    this.setProduct(this._productToDisplay);
     this._formValueChangesSubscription = this.productForm.valueChanges.subscribe((formValue) => {
-      if (this.isFromUser)
+      if (this._isFromUser)
         this.productInEdition.emit(true);
     });
   }
 
   ngOnDestroy() {
     this._formValueChangesSubscription.unsubscribe();
+    if (this._productSubscription != undefined)
+      this._productSubscription.unsubscribe();
   }
 
   setProduct(p: PaperProduct) {
-    this.isFromUser = false;
-    this.productForm.setValue(p);
-    this.isFromUser = true;
+    if (p) {
+      this._isFromUser = false;
+      this.productForm.setValue(p);
+      this._isFromUser = true;
+    }
   }
 
   cancel() {
-    this.setProduct(this.productToDisplay);
+    this.setProduct(this._productToDisplay);
     this.productInEdition.emit(false);
   }
 
   submit() {
     var p = new PaperProduct(this.productForm.value);
-    if (!this.productToDisplay.equals(p)) {
+    if (!p.equals(this._productToDisplay)) {
       this._paperRepo.addOrUpdateProduct(p);
       this.productValueChanged.emit(p);
-      this.productToDisplay = p;
+      this._productToDisplay = p;
     }
   }
 

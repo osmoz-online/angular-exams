@@ -11,6 +11,7 @@ import { PaperMenuComponent } from './views/paper-menu/paper-menu.component';
 import { PageNotFoundComponent } from './views/page-not-found/page-not-found.component';
 import { ListAndAddComponent } from './views/list-and-add/list-and-add.component';
 import { DetailAndReturnComponent } from './views/detail-and-return/detail-and-return.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { DetailAndReturnComponent } from './views/detail-and-return/detail-and-r
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
